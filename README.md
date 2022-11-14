@@ -1,1 +1,3 @@
 # front-end-web-development-with-react
+
+Learn & Build a mobile first, production-ready, high performance, hybrid web apps with React JS, Next JS, JavaScript (ES6), NPM, React Hooks, Redux Toolkit, React Context API, Refs, React-Slick, React-Reveal, TailwindCSS, Authentication with Firebase, Firebase Cloud Firestore, Consuming REST APIs, Data Fetching, using Next JS as Back-End Endpoint, Stripe for payments and give mobile-app like user experiences to your app users. Building Tesla, Netflix & full-stack eCommerce App for your portfolio from the ground up and deploying to Firebase Hosting for production.
