@@ -1,4 +1,4 @@
 Building React Food Delivery Website with Firebase Hosting
 
 Building mobile first, responsive website and learn how to describe UI in React app with JSX and build interactive UI's in React-powered single-page 
-app with React JS, JavaScript (ES6), Third Party Libraries. Using Building Blocks & Fundamentals of React such as JSX, Props, Hooks.
+app with React JS, JavaScript (ES6), Third Party Libraries. Using Building Blocks & Fundamentals of React such as JSX, Props, Hooks and deploying your project in the production-grade web content Firebase hosting.
