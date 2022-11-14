@@ -1,0 +1,1 @@
+Learn modern ES6 Javascript - JavaScript Basics, Arrays & Loops, Data Structures, Modern ES6 Part I & II, Functions in depth, Object-Oriented Programming.
