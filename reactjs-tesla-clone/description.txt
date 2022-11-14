@@ -1,0 +1,6 @@
+Building Tesla Clone with React, Redux Toolkit, Firebase Authentication & Hosting
+
+Building mobile first, responsive Single Page Application, Tesla clone web site with React JS, JavaScript (ES6), Third Party Libraries. 
+Using Building Blocks & Fundamentals of React such as JSX, Props, Hooks. Writing Redux Logic with Redux toolkit to manage application state. 
+Styling React compoenents with Tailwindcss.  Authenticate users to your app with Firebase Authentication and deploying your project in the 
+production-grade web content Firebase hosting.
