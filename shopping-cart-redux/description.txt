@@ -1,4 +1,5 @@
 Building React, Redux Shopping Cart App -Shopping Cart Functionalities, Firebase
 
 Building mobile first, responsive  Shopping Cart App using React JS and Third Party Libraries. Implementing Shopping Cart functionalities 
-such as adding/updating/removing cart products by writing Redux logic with Redux Toolkit.
+such as adding/updating/removing cart products by writing Redux logic with Redux Toolkit and deploying your project in the production-grade web 
+content Firebase hosting.
