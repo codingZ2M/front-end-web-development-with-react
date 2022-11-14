@@ -1,0 +1,4 @@
+Netflix Clone-React, Redux, Firestore, Tailwind CSS, Firebase Hosting, Google Auth, Stripe, Webhooks
+
+Building mobile first, responsive Netflix clone with React, Redux, Tailwind CSS, Login &  Logout functionality with Google Firebase Authentication, 
+Firestore, Deploying the app into Firebase Hosting, Accessing Movie Database API from TMDB,  Building a complete Stripe Payments Checkout Flow
