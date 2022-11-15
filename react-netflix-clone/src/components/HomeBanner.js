@@ -38,7 +38,7 @@ const HomeBanner = () => {
                 />
             </div>
             <MovieInfo>
-                <h1 className='text-2xl md:text-5xl'>{movie?.original_title}</h1>
+                <h1 className='text-2xl md:text-5xl'>{movie?.original_title || movie?.name}</h1>
                 <div className='flex gap-4'>
                     <span className='text-small'>Popularity: {movie?.popularity}</span>
                     <span className='text-small'>Vote Average: {movie?.vote_average}</span>
@@ -60,11 +60,11 @@ const HomeBanner = () => {
 export default HomeBanner
 
 const BannerHeader = tw.div`
-   absolute top-0 w-full h-full text-white mb-10
+   w-full h-full text-white mb-10
 `;
 
 const Overlay = tw.div`
-    absolute w-full h-[520px] bg-gradient-to-r from-black
+    absolute w-full h-[520px] bg-gradient-to-t from-black
 `;
 
 const MovieInfo = tw.div`

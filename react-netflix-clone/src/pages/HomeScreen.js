@@ -3,6 +3,7 @@ import HomeBanner from '../components/HomeBanner'
 import {auth, onAuthStateChanged} from '../firebase'
 import  { useNavigate } from 'react-router-dom'
 import NavBar from '../components/NavBar'
+import MovieGrid from '../components/MovieGrid'
 
 const HomeScreen = () => {
   const navigate = useNavigate();
@@ -17,10 +18,13 @@ const HomeScreen = () => {
 
 
   return (
-    <div className='mt-20'>
+    <>
       <NavBar/>
-      <HomeBanner/>
-    </div>
+      <div className='mt-0 flex flex-col items-center justify-center'>
+        <HomeBanner/>
+        <MovieGrid/>
+      </div>
+    </>
   )
 }
 

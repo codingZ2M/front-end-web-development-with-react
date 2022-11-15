@@ -50,7 +50,7 @@ const Login = () => {
 export default Login
 
 const LoginContainer = tw.div`
-    h-screen w-full overflow-x-hidden flex justify-center bg-center bg-no-repeat object-cover
+    h-screen w-full overflow-x-hidden flex justify-center 
 `;
 const Overlay = tw.div`
     absolute w-full h-screen bg-gradient-to-r from-black

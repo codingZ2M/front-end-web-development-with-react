@@ -64,7 +64,7 @@ const Overlay = tw.div`
     absolute w-full h-screen bg-gradient-to-l from-black
 `;
 const SigninBox = tw.div`
-    absolute top-32 sm:top-24 opacity-80 bg-black  w-11/12 sm:w-[450px] h-[650px] z-10  border-none
+    absolute top-32 sm:top-24 opacity-90 bg-black  w-11/12 sm:w-[450px] h-[650px] z-10  border-none
 `;
 const Heading = tw.h1`
     p-6 text-3xl text-white

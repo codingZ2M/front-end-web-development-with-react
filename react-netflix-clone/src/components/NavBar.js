@@ -13,6 +13,7 @@ const NavBar = () => {
       onAuthStateChanged(auth, async (user) => {
           if (user) {
               setSignedUser(user);
+              console.log(signedUser)
           }
       }  )
   }, []  );
@@ -26,7 +27,7 @@ const NavBar = () => {
              alert(error.message);
          })
      }
-     console.log(signedUser.photoURL)
+     console.log(signedUser)
  }
 
   return (
@@ -37,7 +38,7 @@ const NavBar = () => {
       <div>
         
         {
-         !signedUser ?  
+         !signedUser ? 
          <button className='mr-2 border border-red-600 bg-red-600 px-6 text-sm  text-white py-1 rounded cursor-pointer'
                  onClick={ ()=>  navigate('/signin') } 
           >
