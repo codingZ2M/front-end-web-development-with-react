@@ -1,11 +1,13 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import tw from "tailwind-styled-components"
 import  { useNavigate } from 'react-router-dom'
+import {auth, provider, signInWithPopup, onAuthStateChanged,
+         createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../firebase'
 
-import {auth, provider, signInWithPopup, onAuthStateChanged} from '../firebase'
-
-const Signin = ({}) => {
+const Signin = () => {
     const navigate = useNavigate();
+    const emailRef = useRef(null);
+    const passwordRef = useRef(null);
 
     useEffect ( ()=> {
         onAuthStateChanged(auth, async (user) => {
@@ -24,6 +26,28 @@ const Signin = ({}) => {
          })
 }
 
+//Sign up new users
+const signUp = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, 
+    emailRef.current.value,
+    passwordRef.current.value,
+   ).then( (userCredential) => {
+        console.log(userCredential);
+   }).catch(error => { alert("Enter Valid Username/Password " + error.message)});
+ }
+
+ //Sign in existing users
+const signIn = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, emailRef.current.value,
+                                    passwordRef.current.value,)
+        .then((userCredential) => {
+            console.log(userCredential);
+        }).catch(error => { alert("Check Username/Password " + error.message)});
+}
+
+
   return (
     <SigninContainer>
        <Overlay/>
@@ -36,18 +60,21 @@ const Signin = ({}) => {
         <Heading>Sign In</Heading>
         <FormContainer>
             <FormBox>
-                <Input type="text" placeholder="Email or Phone Number" required className='text-sm'/>
-                <Input type="text" placeholder="Password" required className='text-sm' />
-                <SigninButton onClick="">Sign In</SigninButton>
+                <Input ref={emailRef} type="text" placeholder="Email" required className='text-sm'/>
+                <Input ref={passwordRef} type="text" placeholder="Password" required className='text-sm' />
+                <SigninButton type="submit" onClick={signIn}>Sign In</SigninButton>
+
                 <TextHelp>Need Help? </TextHelp>
                 <GoogleSigninButton  onClick={handleAuth} >
                     <img src="/images/google.svg" alt="User" width={40} height={40}/>
                      Sign In with Google
                 </GoogleSigninButton>
-                <TextSignup>New to Netflix? Sign up now </TextSignup>
+
+                <TextSignup onClick={signUp}>New to Netflix? <span className='text-lg cursor-pointer'>  Sign up now</span> </TextSignup>
                 <Paragraph>
                     This page is protected by Google reCAPTCHA to ensure youre not a bot. Learn more
                 </Paragraph>
+
             </FormBox>
         </FormContainer>
     </SigninBox>

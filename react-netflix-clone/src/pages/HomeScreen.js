@@ -11,7 +11,7 @@ const HomeScreen = () => {
   useEffect (  ()=> {
     onAuthStateChanged(auth, async (user) => {
         if (!user) {
-            navigate(`/`)
+            navigate(`/signin`)
         }
     }  )
 },  );

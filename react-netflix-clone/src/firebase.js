@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut  } from "firebase/auth";
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
+        signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword   } from "firebase/auth";
 
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -13,10 +14,12 @@ const firebaseConfig = {
     measurementId: "G-17L7G6SZ88"
   };
 
+// Initialize Firebase
+const app = initializeApp( firebaseConfig );
 
-  initializeApp( firebaseConfig );
-  const auth = getAuth();
+// Initialize Firebase Authentication and get a reference to the service
+  const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  export {auth, provider, signInWithPopup, onAuthStateChanged, signOut }
-    
+  export {auth, provider, signInWithPopup, onAuthStateChanged, signOut,
+     createUserWithEmailAndPassword, signInWithEmailAndPassword  }

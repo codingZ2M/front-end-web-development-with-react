@@ -25,11 +25,11 @@ const MovieRow = ({category, moviesUrl}) => {
 
                <div className='relative'>
                 
-                   <img src={`${baseImageURL}/original/${movie?.poster_path}`} alt={movie?.title}
+                   <img src={`${baseImageURL}/original/${movie?.poster_path}`} alt={movie?.name}
                               className='w-[160px] h-[200px] object-cover cursor-pointer' />         
                     <div className='absolute top-0 left-0 right-0 hover:bg-black/70
                         text-white opacity-0 hover:opacity-100 w-full h-full'>
-                        <h2 className='p-2'>{movie?.original_title}</h2>
+                        <h2 className='p-2'>{movie?.original_title || movie?.name}</h2>
                         <span className='absolute bottom-0 right-0 p-2'>
                         </span>
                     </div>
@@ -45,7 +45,7 @@ const MovieRow = ({category, moviesUrl}) => {
 export default MovieRow
 
 const Row = tw.div`
-   mt-2 mb-10  grid grid-cols-2  md:grid-cols-7 lg:grid-cols-10 gap-2
+   mt-2 mb-16  grid grid-cols-3  md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10 gap-2
    sm:gap-4 px-2 sm:px-0
   
 `;

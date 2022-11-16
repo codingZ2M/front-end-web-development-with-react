@@ -21,7 +21,7 @@ const NavBar = () => {
   const handleAuth = () => {
       if (signedUser){
          signOut(auth).then( ()=> {
-             navigate('/')
+             navigate('/signin')
             
          }).catch((error)=> {
              alert(error.message);
