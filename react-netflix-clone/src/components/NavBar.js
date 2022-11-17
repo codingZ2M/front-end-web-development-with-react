@@ -1,25 +1,18 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import tw from "tailwind-styled-components"
 import { Link } from "react-router-dom"
 import  { useNavigate } from 'react-router-dom'
-import {auth, onAuthStateChanged, signOut} from '../firebase'
+import {auth, signOut} from '../firebase'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../features/userSlice'
+import {CgProfile} from "react-icons/cg";
 
 const NavBar = () => {
   const navigate = useNavigate();
-
-  const [signedUser, setSignedUser] = useState('');
-
-  useEffect (  ()=> {
-      onAuthStateChanged(auth, async (user) => {
-          if (user) {
-              setSignedUser(user);
-              console.log(signedUser)
-          }
-      }  )
-  }, []  );
-
+  const user = useSelector(selectUser);
+  
   const handleAuth = () => {
-      if (signedUser){
+      if (user){
          signOut(auth).then( ()=> {
              navigate('/signin')
             
@@ -27,31 +20,35 @@ const NavBar = () => {
              alert(error.message);
          })
      }
-     console.log(signedUser)
+     console.log(user)
  }
 
   return (
     <NavBarContainer>
-      <Link to="/" >
+      <Link to="/home" >
         <img src="/images/Netflix.png" className='w-[155px] h-[46px]' alt="Netflix Logo" />
       </Link>
       <div>
         
         {
-         !signedUser ? 
+         !user ? 
          <button className='mr-2 border border-red-600 bg-red-600 px-6 text-sm  text-white py-1 rounded cursor-pointer'
                  onClick={ ()=>  navigate('/signin') } 
           >
               Sign In
           </button>
           :
+          <>
           <SignOut>
-             <img src={signedUser.photoURL} alt="User" className="rounded-full w-[40px] height=[40px]" />
+             <img src={user.photoURL} alt="User" className="rounded-full w-[40px] height=[40px]" />
             <SignOutBox>
                 <span onClick={handleAuth} className="" >Sign Out</span>
             </SignOutBox>
           </SignOut>
-          
+          <CgProfile className='absolute top-1.5 right-4 w-7 h-7 text-[#fff] cursor-pointer'
+                     onClick={ ()=>  navigate('/profile')  }
+            />
+          </>
         }
       </div>
     </NavBarContainer>
@@ -65,10 +62,10 @@ const NavBarContainer = tw.div`
 `;
 
 const SignOut = tw.div`
-    flex absolute top-0 right-6 cursor-pointer group
+    flex absolute top-0 right-14 cursor-pointer group
 `;
 const SignOutBox = tw.div`
-    absolute top-6 right-8 bg-[#E50914] text-white border-none 
+    absolute top-8 right-6 bg-[#E50914] text-white border-none 
     rounded-sm w-20 h-8 flex items-center justify-center text-base 
     opacity-0 group-hover:opacity-100 text-sm
 `;  

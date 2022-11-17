@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react'
 import HomeBanner from '../components/HomeBanner'
-import {auth, onAuthStateChanged} from '../firebase'
 import  { useNavigate } from 'react-router-dom'
 import NavBar from '../components/NavBar'
 import MovieGrid from '../components/MovieGrid'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../features/userSlice'
 
 const HomeScreen = () => {
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
 
   useEffect (  ()=> {
-    onAuthStateChanged(auth, async (user) => {
         if (!user) {
             navigate(`/signin`)
         }
-    }  )
 },  );
 
 
