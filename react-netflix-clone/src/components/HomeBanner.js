@@ -7,7 +7,7 @@ const HomeBanner = () => {
     const [movie, setMovie] = useState([]);
     const baseImageURL = 'https://image.tmdb.org/t/p';
 
-    useEffect (()=> {
+    useEffect ( ()=> {
         async function fetchMovieData() {
             const request = await axiosInstance.get(Requests.trending);
             setMovie(request.data.results[
@@ -60,7 +60,7 @@ const HomeBanner = () => {
 export default HomeBanner
 
 const BannerHeader = tw.div`
-   w-full h-full text-white mb-10
+   w-full h-[520px] text-white mb-10
 `;
 
 const Overlay = tw.div`
