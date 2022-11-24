@@ -9,5 +9,6 @@ const Requests = {
  };
  
  export default Requests;
+ export { API_KEY};
 
  

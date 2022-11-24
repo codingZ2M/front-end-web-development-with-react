@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import tw from "tailwind-styled-components"
 import axiosInstance from '../api/axios';   
 
@@ -22,9 +23,8 @@ const MovieRow = ({category, moviesUrl}) => {
         <Row>
          {
             movies.map((movie, id)=> (
-
+             <Link to ={`/movieDetails/${movie.id}`}>
                <div className='relative'>
-                
                    <img src={`${baseImageURL}/original/${movie?.poster_path}`} alt={movie?.name}
                               className='w-[160px] h-[200px] object-cover cursor-pointer' />         
                     <div className='absolute top-0 left-0 right-0 hover:bg-black/70
@@ -33,8 +33,8 @@ const MovieRow = ({category, moviesUrl}) => {
                         <span className='absolute bottom-0 right-0 p-2'>
                         </span>
                     </div>
-                    
-                </div>       
+                </div>   
+             </Link>      
             ))
            }
         </Row>    

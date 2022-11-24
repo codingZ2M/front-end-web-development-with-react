@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import HomeScreen from './pages/HomeScreen'
 import {Routes,  Route } from 'react-router-dom'
 import Login from './pages/Login'
@@ -7,6 +7,7 @@ import {auth, onAuthStateChanged} from './firebase'
 import { useDispatch } from 'react-redux'
 import { login, logout } from './features/userSlice'
 import Profile from './pages/Profile'
+import MovieDetails from './components/MovieDetails'
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
             <Route  path="/signin" element={<Signin/>} />  
             <Route path='/home' element={<HomeScreen/>} />
             <Route path='/profile' element={<Profile/>} />
+            <Route path='/movieDetails/:id' element={<MovieDetails/>} />
        </Routes>
    
     </div>
